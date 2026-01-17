@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:role_playing_game/screens/home/home.dart';
+import 'package:role_playing_game/theme.dart';
 
 void main() {
-  runApp(const MaterialApp(debugShowCheckedModeBanner: false, home: Home()));
+  runApp(
+    MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: primaryTheme,
+      home: const Home(),
+    ),
+  );
 }
