@@ -33,7 +33,7 @@ ThemeData primaryTheme = ThemeData(
       letterSpacing: 1,
     ),
     titleMedium: TextStyle(
-      color: AppColors.textColor,
+      color: AppColors.titleColor,
       fontSize: 18,
       fontWeight: FontWeight.bold,
       letterSpacing: 2,
@@ -44,5 +44,12 @@ ThemeData primaryTheme = ThemeData(
       fontWeight: FontWeight.bold,
       letterSpacing: 1,
     ),
+  ),
+  cardTheme: CardThemeData(
+    color: AppColors.secondaryColor.withOpacity(0.9),
+    shape: RoundedRectangleBorder(),
+    shadowColor: Colors.transparent,
+    margin: EdgeInsets.only(bottom: 16),
+    surfaceTintColor: Colors.transparent,
   ),
 );

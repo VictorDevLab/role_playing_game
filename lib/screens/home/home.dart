@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:role_playing_game/screens/home/character_card.dart';
 import 'package:role_playing_game/shared/styled_button.dart';
 import 'package:role_playing_game/shared/styled_text.dart';
 
@@ -10,6 +11,16 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  List characters = [
+    "Luigi",
+    "Mario",
+    "Carter",
+    "Parker",
+    "Ollynx",
+    "Uli",
+    "Chad",
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,9 +32,15 @@ class _HomeState extends State<Home> {
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
-            StyledText("Character List"),
-            StyledHeading("Character List"),
-            StyledTitle("Character List"),
+            Expanded(
+              child: ListView.builder(
+                itemCount: characters.length,
+                itemBuilder: (_, index) {
+                  return CharacterCard(characters[index]);
+                },
+              ),
+            ),
+
             StyledButton(onPressed: () {}, child: StyledHeading("Create New")),
           ],
         ),

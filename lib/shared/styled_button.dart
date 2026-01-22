@@ -14,10 +14,11 @@ class StyledButton extends StatelessWidget {
         padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [AppColors.primaryColor, AppColors.secondaryAccent],
+            colors: [AppColors.primaryColor, AppColors.primaryAccent],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
+          borderRadius: const BorderRadius.all(Radius.circular(5)),
         ),
         child: child,
       ),
