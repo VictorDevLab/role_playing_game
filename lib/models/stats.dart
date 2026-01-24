@@ -5,6 +5,24 @@ mixin Stats {
   int _attack = 10;
   int _skill = 10;
 
+  //getters
+  int get points => _points;
+  //returning stats as a map
+  Map<String, int> get statsAsMap => {
+    "health": _health,
+    "defense": _defense,
+    "attack": _attack,
+    "skill": _skill,
+  };
+
+  List<Map<String, String>> get statsAsFormattedList => [
+    {"title": "health", "value": _health.toString()},
+    {"title": "defense", "value": _defense.toString()},
+    {"title": "attack", "value": _attack.toString()},
+    {"title": "skill", "value": _skill.toString()},
+  ];
+
+  //methods
   void increaseStats(String stat) {
     if (_points > 0) {
       if (stat == "health") {
