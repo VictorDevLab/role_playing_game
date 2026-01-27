@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:role_playing_game/models/skill.dart';
 import 'package:role_playing_game/models/stats.dart';
 import 'package:role_playing_game/models/vocation.dart';
@@ -5,10 +7,10 @@ import 'package:role_playing_game/models/vocation.dart';
 class Character with Stats {
   //Constructor
   Character({
+    required this.id,
     required this.name,
     required this.slogan,
     required this.vocation,
-    required this.id,
   });
 
   //fields
@@ -33,3 +35,30 @@ class Character with Stats {
     skills.add(skill);
   }
 }
+
+List<Character> characters = [
+  Character(
+    id: "1",
+    name: "Klara",
+    slogan: "Kumpuf",
+    vocation: Vocation.wizard,
+  ),
+  Character(
+    id: '2',
+    name: 'Jonny',
+    vocation: Vocation.junkie,
+    slogan: 'Light me up...',
+  ),
+  Character(
+    id: '3',
+    name: 'Crimson',
+    vocation: Vocation.raider,
+    slogan: 'Fire in the hole!',
+  ),
+  Character(
+    id: '4',
+    name: 'Shaun',
+    vocation: Vocation.ninja,
+    slogan: 'Alright then gang.',
+  ),
+];
