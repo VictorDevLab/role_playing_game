@@ -52,4 +52,12 @@ ThemeData primaryTheme = ThemeData(
     margin: EdgeInsets.only(bottom: 16),
     surfaceTintColor: Colors.transparent,
   ),
+  // input decoration theme
+  inputDecorationTheme: InputDecorationTheme(
+    filled: true,
+    fillColor: AppColors.secondaryColor.withOpacity(0.5),
+    border: InputBorder.none,
+    labelStyle: TextStyle(color: AppColors.textColor),
+    prefixIconColor: AppColors.textColor,
+  ),
 );
