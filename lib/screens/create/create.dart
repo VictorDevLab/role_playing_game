@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:role_playing_game/models/vocation.dart';
+import 'package:role_playing_game/screens/create/vocation_card.dart';
 import 'package:role_playing_game/shared/styled_button.dart';
 import 'package:role_playing_game/shared/styled_text.dart';
 import 'package:role_playing_game/theme.dart';
@@ -80,6 +82,17 @@ class _CreateState extends State<Create> {
               ),
             ),
             const SizedBox(height: 30),
+            //selecting a vocation
+            Center(child: Icon(Icons.code, color: AppColors.primaryColor)),
+            const Center(child: StyledHeading("Choose a vocation!")),
+            const Center(child: StyledText("Determines your available skills")),
+            const SizedBox(height: 30),
+
+            VocationCard(vocation: Vocation.junkie),
+            VocationCard(vocation: Vocation.wizard),
+            VocationCard(vocation: Vocation.ninja),
+            VocationCard(vocation: Vocation.raider),
+
             Center(
               child: StyledButton(
                 onPressed: handleSubmit,
