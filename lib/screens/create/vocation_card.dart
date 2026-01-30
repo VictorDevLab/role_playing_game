@@ -8,27 +8,32 @@ class VocationCard extends StatelessWidget {
   final Vocation vocation;
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Padding(
-        padding: EdgeInsets.all(8),
-        child: Row(
-          children: [
-            Image.asset(
-              "assets/img/vocations/${vocation.image}",
-              width: 80,
-              colorBlendMode: BlendMode.color,
-            ),
-            const SizedBox(width: 10),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  StyledHeading(vocation.title),
-                  StyledText(vocation.description),
-                ],
+    return GestureDetector(
+      onTap: () {
+        print(vocation.title);
+      },
+      child: Card(
+        child: Padding(
+          padding: EdgeInsets.all(8),
+          child: Row(
+            children: [
+              Image.asset(
+                "assets/img/vocations/${vocation.image}",
+                width: 80,
+                colorBlendMode: BlendMode.color,
               ),
-            ),
-          ],
+              const SizedBox(width: 10),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    StyledHeading(vocation.title),
+                    StyledText(vocation.description),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
