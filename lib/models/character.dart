@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:role_playing_game/models/skill.dart';
 import 'package:role_playing_game/models/stats.dart';
 import 'package:role_playing_game/models/vocation.dart';
