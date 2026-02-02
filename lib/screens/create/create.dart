@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:role_playing_game/models/character.dart';
 import 'package:role_playing_game/models/vocation.dart';
 import 'package:role_playing_game/screens/create/vocation_card.dart';
 import 'package:role_playing_game/shared/styled_button.dart';
 import 'package:role_playing_game/shared/styled_text.dart';
 import 'package:role_playing_game/theme.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:uuid/uuid.dart';
+
+var uuid = const Uuid();
 
 class Create extends StatefulWidget {
   const Create({super.key});
@@ -37,16 +41,22 @@ class _CreateState extends State<Create> {
   //submit handler function
   void handleSubmit() {
     if (_nameController.text.trim().isEmpty) {
-      print("Character Name cannot be empty");
+      //TODO: Show an error dialog
       return;
     }
     if (_sloganController.text.trim().isEmpty) {
-      print("Character Name cannot be empty");
+      //TODO: Show an error dialog
       return;
     }
 
-    print(_nameController.text);
-    print(_sloganController.text);
+    characters.add(
+      Character(
+        id: uuid.v4(),
+        name: _nameController.text.trim(),
+        slogan: _sloganController.text.trim(),
+        vocation: selectedVocation,
+      ),
+    );
   }
 
   @override
@@ -121,6 +131,10 @@ class _CreateState extends State<Create> {
                 onTap: updateVocation,
                 vocation: Vocation.raider,
               ),
+              Center(child: Icon(Icons.code, color: AppColors.primaryColor)),
+              const Center(child: StyledHeading("Good Luck!")),
+              const Center(child: StyledText("And enjoy your journey")),
+              const SizedBox(height: 30),
 
               Center(
                 child: StyledButton(
