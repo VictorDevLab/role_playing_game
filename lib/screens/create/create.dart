@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:role_playing_game/models/character.dart';
 import 'package:role_playing_game/models/vocation.dart';
 import 'package:role_playing_game/screens/create/vocation_card.dart';
+import 'package:role_playing_game/screens/home/home.dart';
 import 'package:role_playing_game/shared/styled_button.dart';
 import 'package:role_playing_game/shared/styled_text.dart';
 import 'package:role_playing_game/theme.dart';
@@ -41,11 +42,45 @@ class _CreateState extends State<Create> {
   //submit handler function
   void handleSubmit() {
     if (_nameController.text.trim().isEmpty) {
-      //TODO: Show an error dialog
+      showDialog(
+        context: context,
+        builder: (ctx) {
+          return AlertDialog(
+            title: const StyledHeading("Missing Character Name"),
+            content: StyledText("Every RPG character needs a Name"),
+            actions: [
+              StyledButton(
+                onPressed: () {
+                  Navigator.pop(ctx);
+                },
+                child: const StyledHeading('close'),
+              ),
+            ],
+            actionsAlignment: MainAxisAlignment.center,
+          );
+        },
+      );
       return;
     }
     if (_sloganController.text.trim().isEmpty) {
-      //TODO: Show an error dialog
+      showDialog(
+        context: context,
+        builder: (ctx) {
+          return AlertDialog(
+            title: const StyledHeading("Missing Slogan"),
+            content: StyledText("Must add a slogan"),
+            actions: [
+              StyledButton(
+                onPressed: () {
+                  Navigator.pop(ctx);
+                },
+                child: const StyledHeading('close'),
+              ),
+            ],
+            actionsAlignment: MainAxisAlignment.center,
+          );
+        },
+      );
       return;
     }
 
@@ -57,6 +92,7 @@ class _CreateState extends State<Create> {
         vocation: selectedVocation,
       ),
     );
+    Navigator.push(context, MaterialPageRoute(builder: (ctx) => const Home()));
   }
 
   @override
