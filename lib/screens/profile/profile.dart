@@ -16,6 +16,7 @@ class Profile extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            //basic info - Image vocation description.
             Container(
               padding: EdgeInsets.all(16),
               color: AppColors.secondaryColor.withOpacity(0.3),
@@ -39,6 +40,35 @@ class Profile extends StatelessWidget {
                 ],
               ),
             ),
+            //weapon, ability and slogan
+            const SizedBox(height: 20),
+            Center(child: Icon(Icons.code, color: AppColors.primaryColor)),
+            Padding(
+              padding: EdgeInsetsGeometry.all(16),
+              child: Container(
+                //takes up all the available width,
+                width: double.infinity,
+                padding: EdgeInsets.all(16),
+                color: AppColors.secondaryColor.withOpacity(0.5),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const StyledHeading("Slogan"),
+                    StyledText(character.slogan),
+                    const SizedBox(height: 10),
+                    const StyledHeading("Weapon of choice"),
+                    StyledText(character.vocation.weapon),
+                    const SizedBox(height: 10),
+                    const StyledHeading("Unique Ability"),
+                    StyledText(character.vocation.ability),
+                    const SizedBox(height: 10),
+                  ],
+                ),
+              ),
+            ),
+            //stats & skills
+
+            //save button
           ],
         ),
       ),
