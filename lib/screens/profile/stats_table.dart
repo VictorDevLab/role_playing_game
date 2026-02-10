@@ -37,6 +37,66 @@ class _StatsTableState extends State<StatsTable> {
               ],
             ),
           ),
+          //stats table
+          Table(
+            children: widget.character.statsAsFormattedList.map((stat) {
+              return TableRow(
+                decoration: BoxDecoration(
+                  color: AppColors.secondaryColor.withOpacity(0.6),
+                ),
+                children: [
+                  //stats title
+                  TableCell(
+                    verticalAlignment: TableCellVerticalAlignment.middle,
+                    child: Padding(
+                      padding: EdgeInsets.all(8),
+                      child: StyledHeading(stat['title']!),
+                    ),
+                  ),
+                  //stats value
+                  TableCell(
+                    verticalAlignment: TableCellVerticalAlignment.middle,
+                    child: Padding(
+                      padding: EdgeInsets.all(8),
+                      child: StyledHeading(stat['value']!),
+                    ),
+                  ),
+                  //icon to increase stat
+                  TableCell(
+                    verticalAlignment: TableCellVerticalAlignment.middle,
+                    child: IconButton(
+                      padding: EdgeInsets.all(8),
+                      icon: Icon(
+                        Icons.arrow_upward,
+                        color: AppColors.textColor,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          widget.character.increaseStats(stat['title']!);
+                        });
+                      },
+                    ),
+                  ),
+                  //icon to decrease stat
+                  TableCell(
+                    verticalAlignment: TableCellVerticalAlignment.middle,
+                    child: IconButton(
+                      padding: EdgeInsets.all(8),
+                      icon: Icon(
+                        Icons.arrow_downward,
+                        color: AppColors.textColor,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          widget.character.decreaseStats(stat['title']!);
+                        });
+                      },
+                    ),
+                  ),
+                ],
+              );
+            }).toList(),
+          ),
         ],
       ),
     );

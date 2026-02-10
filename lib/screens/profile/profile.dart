@@ -50,7 +50,7 @@ class Profile extends StatelessWidget {
                 //takes up all the available width,
                 width: double.infinity,
                 padding: EdgeInsets.all(16),
-                color: AppColors.secondaryColor.withOpacity(0.5),
+                color: AppColors.secondaryColor.withOpacity(0.6),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
