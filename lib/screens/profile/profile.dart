@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:role_playing_game/models/character.dart';
+import 'package:role_playing_game/screens/profile/skill_list.dart';
 import 'package:role_playing_game/screens/profile/stats_table.dart';
 import 'package:role_playing_game/shared/styled_text.dart';
 import 'package:role_playing_game/theme.dart';
@@ -70,7 +71,9 @@ class Profile extends StatelessWidget {
             //stats & skills
             Container(
               alignment: Alignment.center,
-              child: Column(children: [StatsTable(character)]),
+              child: Column(
+                children: [StatsTable(character), SkillList(character)],
+              ),
             ),
 
             //save button
