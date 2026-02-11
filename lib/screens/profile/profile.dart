@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:role_playing_game/models/character.dart';
 import 'package:role_playing_game/screens/profile/skill_list.dart';
 import 'package:role_playing_game/screens/profile/stats_table.dart';
+import 'package:role_playing_game/shared/styled_button.dart';
 import 'package:role_playing_game/shared/styled_text.dart';
 import 'package:role_playing_game/theme.dart';
 
@@ -77,6 +78,20 @@ class Profile extends StatelessWidget {
             ),
 
             //save button
+            StyledButton(
+              onPressed: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: const StyledHeading("Character was saved"),
+                    showCloseIcon: true,
+                    duration: const Duration(seconds: 3),
+                    backgroundColor: AppColors.secondaryColor,
+                  ),
+                );
+              },
+              child: StyledHeading("Save Character"),
+            ),
+            const SizedBox(height: 20),
           ],
         ),
       ),
