@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "648937779188",
+    "project_id": "rpg-characters-dc9db",
+    "storage_bucket": "rpg-characters-dc9db.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:648937779188:android:ba822c60c009ce5aaa13a1",
+        "android_client_info": {
+          "package_name": "com.example.role_playing_game"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCt9trhqABEf-3xpYpG4m14nlzk7fGo-FU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
