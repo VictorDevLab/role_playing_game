@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:role_playing_game/screens/create/create.dart';
+//import 'package:role_playing_game/screens/create/create.dart';
 import 'package:role_playing_game/screens/home/home.dart';
 import 'package:role_playing_game/services/character_store.dart';
 import 'package:role_playing_game/theme.dart';
@@ -11,6 +11,8 @@ import 'firebase_options.dart';
 // ...
 
 void main() async {
+  //don't forget this
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(
     ChangeNotifierProvider(
