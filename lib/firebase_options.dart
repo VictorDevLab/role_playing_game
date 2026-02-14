@@ -65,4 +65,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'rpg-characters-dc9db.firebasestorage.app',
     iosBundleId: 'com.example.rolePlayingGame',
   );
+
 }
