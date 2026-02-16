@@ -59,4 +59,14 @@ mixin Stats {
       _points++;
     }
   }
+
+  //Processing the stats since they are private variables(part of deserialization)
+  void setStats({required int points, required Map<String, dynamic> stats}) {
+    _points = stats['points'];
+
+    _health = stats['health'];
+    _defense = stats['defense'];
+    _attack = stats['attack'];
+    _skill = stats['skill'];
+  }
 }
