@@ -3,41 +3,47 @@ import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:role_playing_game/models/character.dart';
 import 'package:role_playing_game/models/vocation.dart';
+import 'package:role_playing_game/services/firestore_service.dart';
 
 class CharacterStore extends ChangeNotifier {
-  final List<Character> _characters = [
-    Character(
-      id: "1",
-      name: "Klara",
-      slogan: "Kumpuf",
-      vocation: Vocation.wizard,
-    ),
-    Character(
-      id: '2',
-      name: 'Jonny',
-      vocation: Vocation.junkie,
-      slogan: 'Light me up...',
-    ),
-    Character(
-      id: '3',
-      name: 'Crimson',
-      vocation: Vocation.raider,
-      slogan: 'Fire in the hole!',
-    ),
-    Character(
-      id: '4',
-      name: 'Shaun',
-      vocation: Vocation.ninja,
-      slogan: 'Alright then gang.',
-    ),
-  ];
+  final List<Character> _characters = [];
 
   //getter
   get characters => _characters;
 
   //add character
   void addCharacter(Character character) {
+    FirestoreService.addCharacter(character);
     _characters.add(character);
     notifyListeners();
+  }
+
+  // save (update) character
+  Future<void> saveCharacter(character) async {
+    await FirestoreService.updateCharacter(character);
+    return;
+  }
+
+  // remove character
+  void removeCharacter(Character character) async {
+    await FirestoreService.deleteCharacter(character);
+
+    _characters.remove(character);
+    notifyListeners();
+  }
+
+  //fetch characters
+  void fetchCharactersOnce() async {
+    if (characters.isEmpty) {
+      try {
+        final snapshot = await FirestoreService.getCharactersOnce();
+        for (var doc in snapshot.docs) {
+          _characters.add(doc.data());
+        }
+        notifyListeners();
+      } catch (e) {
+        print('Error fetching characters: $e');
+      }
+    }
   }
 }
